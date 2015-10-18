@@ -8,8 +8,7 @@ case class Intern(stay: Int) extends Employee
 
 
 object Payroll {
-	def printSalary(employee: Employee) {
-		val currentYeay = 2001
+	def printSalary(employee: Employee, currentYeay: Int) {
 	    employee match {
 	      case Intern(stay) =>
 	        println(stay * 300)
@@ -23,11 +22,12 @@ object Payroll {
 
 object CaseClassesTest {
 	def main(args: Array[String]){
+		var today = 2001
 		val dev = new Dev(1997)
 		val intern = new Intern(4)
 		val manager = new Manager(2001, Array(dev, intern))
-		Payroll.printSalary(dev)
-		Payroll.printSalary(intern)
-		Payroll.printSalary(manager)
+		Payroll.printSalary(dev, today)
+		Payroll.printSalary(intern, today)
+		Payroll.printSalary(manager, today)
   	}
 }

@@ -23,33 +23,29 @@ trait Authority {
 	def hasDirectReports() :Boolean = directReports.length != 0
 }
 
-class Intern (salary_param: Int, desk_param: String, startDate_param: Int) 
-	extends Employee with InOffice with Temporary {
-	val salary = salary_param
-	val desk = desk_param
-	val stay = 6
-	val startDate = startDate_param
-}
+class Intern (
+	val salary: Int, 
+	val desk: String, 
+	val startDate: Int, 
+	val stay: Int = 6) 
+	extends Employee with InOffice with Temporary {}
 
-class Developer (salary_param: Int, desk_param: String) 
-	extends Employee with InOffice {
-	val salary = salary_param
-	val desk = desk_param
-}
+class Developer (
+	val salary: Int, 
+	val desk: String) 
+	extends Employee with InOffice {}
 
-class Manager (salary_param: Int, location_param: String, reports: Array[Employee]) 
-	extends Employee with Remote with Authority {
-	val salary = salary_param
-	val location = location_param
-	val directReports = reports
-}
+class Manager (
+	val salary: Int, 
+	val location: String, 
+	val directReports: Array[Employee]) 
+	extends Employee with Remote with Authority {}
 
-/*
-class Consultant (salary_param: Int, location_param: String, reports: Array[Employee]) 
-	extends Employee with Authority {
-	val salary = salary_param
-}
-*/
+class Consultant (
+	val salary: Int, 
+	val location: String,
+ 	val directReports: Array[Employee]) 
+	extends Employee with Authority {}
 
 object EmployeeTest extends App {
 	val dev = new Developer(123456, "A1234")
